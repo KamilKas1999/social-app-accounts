@@ -2,7 +2,7 @@ package com.kasprzak.kamil.accounts.application.security;
 
 import com.kasprzak.kamil.accounts.application.filter.CustomAuthorizationFilter;
 import com.kasprzak.kamil.accounts.application.filter.CustomeAuthenticationFilter;
-import com.kasprzak.kamil.accounts.logic.service.implementation.UserServiceImpl;
+import com.kasprzak.kamil.accounts.logic.service.UserServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

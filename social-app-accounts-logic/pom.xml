@@ -10,8 +10,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>social-app-accounts-logic</artifactId>
-    <dependencies>
 
+    <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -25,21 +25,13 @@
             <artifactId>social-app-accounts-dat</artifactId>
             <version>0.0.1</version>
         </dependency>
+        <dependency>
+            <groupId>com.kasprzak.kamil.accounts</groupId>
+            <artifactId>social-app-accounts-domain</artifactId>
+            <version>0.0.1</version>
+        </dependency>
     </dependencies>
 
-    <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-    </properties>
 
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>

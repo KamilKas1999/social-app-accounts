@@ -1,15 +1,15 @@
 package com.kasprzak.kamil.accounts.spring;
 
 
-import aaabbbccc.bbb.User;
+import com.kasprzak.kamil.accounts.domain.entity.User;
+import com.kasprzak.kamil.accounts.domain.request.RegisterRequest;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.kasprzak.kamil.accounts.domain.RegisterRequest;
-import com.kasprzak.kamil.accounts.logic.service.interfaces.UserService;
+import com.kasprzak.kamil.accounts.logic.service.UserService;
 
 import java.util.List;
 

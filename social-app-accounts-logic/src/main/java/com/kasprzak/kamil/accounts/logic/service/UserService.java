@@ -1,8 +1,9 @@
-package com.kasprzak.kamil.accounts.logic.service.interfaces;
+package com.kasprzak.kamil.accounts.logic.service;
 
 
-import aaabbbccc.bbb.Role;
-import aaabbbccc.bbb.User;
+
+import com.kasprzak.kamil.accounts.domain.entity.Role;
+import com.kasprzak.kamil.accounts.domain.entity.User;
 
 import java.util.List;
 

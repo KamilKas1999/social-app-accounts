@@ -11,10 +11,6 @@
 
     <artifactId>social-app-accounts-dat</artifactId>
 
-    <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-    </properties>
 
     <dependencies>
         <dependency>
@@ -25,6 +21,11 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.kasprzak.kamil.accounts</groupId>
+            <artifactId>social-app-accounts-domain</artifactId>
+            <version>0.0.1</version>
         </dependency>
     </dependencies>
 

@@ -1,4 +1,4 @@
-package com.kasprzak.kamil.accounts.domain;
+package com.kasprzak.kamil.accounts.domain.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

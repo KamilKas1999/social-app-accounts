@@ -1,6 +1,6 @@
-package aaabbbccc.ccc;
+package com.kasprzak.kamil.accounts.dat;
 
-import aaabbbccc.bbb.Role;
+import com.kasprzak.kamil.accounts.domain.entity.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

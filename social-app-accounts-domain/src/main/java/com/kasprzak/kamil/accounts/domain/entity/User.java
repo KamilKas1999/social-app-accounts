@@ -1,4 +1,4 @@
-package aaabbbccc.bbb;
+package com.kasprzak.kamil.accounts.domain.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

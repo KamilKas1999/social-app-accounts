@@ -1,11 +1,12 @@
-package com.kasprzak.kamil.accounts.logic.service.implementation;
+package com.kasprzak.kamil.accounts.logic.service;
 
 
-import aaabbbccc.bbb.Role;
-import aaabbbccc.bbb.User;
-import aaabbbccc.ccc.RoleRepo;
-import aaabbbccc.ccc.UserRepo;
-import com.kasprzak.kamil.accounts.logic.service.interfaces.UserService;
+
+import com.kasprzak.kamil.accounts.dat.RoleRepo;
+import com.kasprzak.kamil.accounts.dat.UserRepo;
+
+import com.kasprzak.kamil.accounts.domain.entity.Role;
+import com.kasprzak.kamil.accounts.domain.entity.User;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
