@@ -29,23 +29,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        UserServiceImpl service;
         auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder);
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         CustomeAuthenticationFilter customeAuthenticationFilter = new CustomeAuthenticationFilter(authenticationManager());
-        customeAuthenticationFilter.setFilterProcessesUrl("/api/login");
+        customeAuthenticationFilter.setFilterProcessesUrl("/api/auth/login");
+        http.addFilter(customeAuthenticationFilter);
         http.csrf().disable();
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-        http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/login/**","/token/refresh/**").permitAll();
+        http.authorizeRequests().antMatchers(HttpMethod.POST,"/token/refresh/**","/api/auth/**").permitAll();
+        http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/auth/**").permitAll();
         http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/user/**").hasAuthority("USER");
         http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/user/save/**").hasAuthority("ADMIN");
         http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/users").hasAuthority("ADMIN");
-
         http.authorizeRequests().anyRequest().authenticated();
-        http.addFilter(customeAuthenticationFilter);
         http.addFilterBefore(new CustomAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
     }
 
