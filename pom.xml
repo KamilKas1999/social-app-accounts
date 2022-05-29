@@ -8,7 +8,7 @@
 		<module>social-app-accounts-spring-infrastructure</module>
 		<module>social-app-accounts-domain</module>
 		<module>social-app-accounts-logic</module>
-		<module>social-app-accounts-dat</module>
+		<module>social-app-accounts-database-infrastructure</module>
 	</modules>
     <parent>
 		<groupId>org.springframework.boot</groupId>
@@ -24,9 +24,14 @@
 	<properties>
 		<java.version>11</java.version>
 		<start-class>com.kasprzak.kamil.accounts.application.SocialAppAccountsApplication</start-class>
+		<spring-cloud.version>2021.0.2</spring-cloud.version>
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
 		<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter</artifactId>
@@ -36,11 +41,57 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
 	</dependencies>
 
+	<dependencyManagement>
+		<dependencies>
+			<!--project-->
+			<dependency>
+				<groupId>com.kasprzak.kamil.accounts</groupId>
+				<artifactId>social-app-accounts-database-infrastructure</artifactId>
+				<version>0.0.1</version>
+			</dependency>
+			<dependency>
+				<groupId>com.kasprzak.kamil.accounts</groupId>
+				<artifactId>social-app-accounts-domain</artifactId>
+				<version>0.0.1</version>
+			</dependency>
+			<dependency>
+				<groupId>com.kasprzak.kamil.accounts</groupId>
+				<artifactId>social-app-accounts-logic</artifactId>
+				<version>0.0.1</version>
+			</dependency>
+			<dependency>
+				<groupId>com.kasprzak.kamil.accounts</groupId>
+				<artifactId>social-app-accounts-spring-infrastructure</artifactId>
+				<version>0.0.1</version>
+			</dependency>
+			<!--spring-->
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<!--other-->
+			<dependency>
+				<groupId>com.auth0</groupId>
+				<artifactId>java-jwt</artifactId>
+				<version>3.19.1</version>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-web</artifactId>
+				<version>2.4.0</version>
+			</dependency>
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-boot-starter</artifactId>
+				<version>3.0.0</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 </project>

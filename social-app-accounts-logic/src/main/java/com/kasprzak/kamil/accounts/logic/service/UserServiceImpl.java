@@ -2,9 +2,8 @@ package com.kasprzak.kamil.accounts.logic.service;
 
 
 
-import com.kasprzak.kamil.accounts.dat.RoleRepo;
-import com.kasprzak.kamil.accounts.dat.UserRepo;
-
+import  com.kasprzak.kamil.accounts.database.infrastructure.UserRepo;
+import  com.kasprzak.kamil.accounts.database.infrastructure.RoleRepo;
 import com.kasprzak.kamil.accounts.domain.entity.Role;
 import com.kasprzak.kamil.accounts.domain.entity.User;
 import lombok.RequiredArgsConstructor;
@@ -69,9 +68,15 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     @Override
-    public User getUser(String username) {
-        log.info("Get user {}", username);
+    public User getUserByName(String username) {
+        log.info("Get user with name: {}", username);
         return userRepo.findByUsername(username);
+    }
+
+    @Override
+    public User getUserById(Long id) {
+        log.info("Get user with id: {}", id);
+        return userRepo.getById(id);
     }
 
     @Override

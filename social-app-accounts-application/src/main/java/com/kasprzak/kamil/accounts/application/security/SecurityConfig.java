@@ -2,7 +2,6 @@ package com.kasprzak.kamil.accounts.application.security;
 
 import com.kasprzak.kamil.accounts.application.filter.CustomAuthorizationFilter;
 import com.kasprzak.kamil.accounts.application.filter.CustomeAuthenticationFilter;
-import com.kasprzak.kamil.accounts.logic.service.UserServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -39,18 +38,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.addFilter(customeAuthenticationFilter);
         http.csrf().disable();
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-        http.authorizeRequests().antMatchers(HttpMethod.POST,"/token/refresh/**","/api/auth/**").permitAll();
-        http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/auth/**").permitAll();
-        http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/user/**").hasAuthority("USER");
-        http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/user/save/**").hasAuthority("ADMIN");
-        http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/users").hasAuthority("ADMIN");
+        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/auth/**").permitAll();
+        http.authorizeRequests()                .antMatchers("/v2/api-docs",
+                        "/v3/api-docs",
+                        "/configuration/ui",
+                        "/swagger-resources/**",
+                        "/configuration/security",
+                        "/swagger-ui.html",
+                        "/webjars/**",
+                        "/swagger-ui/**")
+                .permitAll();
+        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/user/**").hasAuthority("USER");
+        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/user/save/**").hasAuthority("ADMIN");
+        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/users").hasAuthority("ADMIN");
         http.authorizeRequests().anyRequest().authenticated();
         http.addFilterBefore(new CustomAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
     }
 
     @Bean
     @Override
-    public AuthenticationManager authenticationManagerBean() throws Exception{
+    public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
 }

@@ -1,4 +1,4 @@
-package com.kasprzak.kamil.accounts.dat;
+package com.kasprzak.kamil.accounts.database.infrastructure;
 
 
 import com.kasprzak.kamil.accounts.domain.entity.User;

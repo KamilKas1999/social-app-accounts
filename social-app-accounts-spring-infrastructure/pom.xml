@@ -12,6 +12,23 @@
     <artifactId>social-app-accounts-spring-infrastructure</artifactId>
 
     <dependencies>
+        <!--project-->
+        <dependency>
+            <groupId>com.kasprzak.kamil.accounts</groupId>
+            <artifactId>social-app-accounts-database-infrastructure</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.kasprzak.kamil.accounts</groupId>
+            <artifactId>social-app-accounts-logic</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.kasprzak.kamil.accounts</groupId>
+            <artifactId>social-app-accounts-domain</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <!--spring-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
@@ -21,38 +38,20 @@
             <artifactId>spring-webmvc</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!--other-->
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
             <groupId>com.auth0</groupId>
             <artifactId>java-jwt</artifactId>
-            <version>3.19.1</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.kasprzak.kamil.accounts</groupId>
-            <artifactId>social-app-accounts-dat</artifactId>
-            <version>0.0.1</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.kasprzak.kamil.accounts</groupId>
-            <artifactId>social-app-accounts-logic</artifactId>
-            <version>0.0.1</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.kasprzak.kamil.accounts</groupId>
-            <artifactId>social-app-accounts-domain</artifactId>
-            <version>0.0.1</version>
-            <scope>compile</scope>
         </dependency>
     </dependencies>
+
 
 
     <build>

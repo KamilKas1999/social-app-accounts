@@ -12,26 +12,27 @@
     <artifactId>social-app-accounts-logic</artifactId>
 
     <dependencies>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-core</artifactId>
-        </dependency>
+        <!--project-->
         <dependency>
             <groupId>com.kasprzak.kamil.accounts</groupId>
-            <artifactId>social-app-accounts-dat</artifactId>
-            <version>0.0.1</version>
+            <artifactId>social-app-accounts-database-infrastructure</artifactId>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.kasprzak.kamil.accounts</groupId>
             <artifactId>social-app-accounts-domain</artifactId>
-            <version>0.0.1</version>
+            <scope>compile</scope>
+        </dependency>
+        <!--spring-->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+        </dependency>
+        <!--other-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
     </dependencies>
-
-
 
 </project>
