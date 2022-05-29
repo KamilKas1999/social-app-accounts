@@ -28,7 +28,9 @@ import static java.util.Arrays.stream;
 public class CustomAuthorizationFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        if (request.getServletPath().startsWith("/api/auth") || request.getServletPath().equals("/api/token/refresh/**")) {
+        if (request.getServletPath().startsWith("/api/auth") ||
+                request.getServletPath().startsWith("/auth")
+        ) {
             filterChain.doFilter(request, response);
         } else {
             String authorizationHeader = request.getHeader("Authorization");
@@ -49,10 +51,10 @@ public class CustomAuthorizationFilter extends OncePerRequestFilter {
                 } catch (Exception e) {
                     log.error("Error login in {}", e.getMessage());
                     response.setStatus(403);
-                    Map<String,String> error = new HashMap<>();
-                    error.put("error_maessage",e.getMessage());
+                    Map<String, String> error = new HashMap<>();
+                    error.put("error_maessage", e.getMessage());
                     response.setContentType("application/json");
-                    new ObjectMapper().writeValue(response.getOutputStream(),error);
+                    new ObjectMapper().writeValue(response.getOutputStream(), error);
                 }
 
             } else {
